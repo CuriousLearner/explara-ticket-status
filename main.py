@@ -2,8 +2,10 @@ from flask import Flask, Response
 from os import environ
 from json import dumps
 import requests
+from flask.ext.cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 # You can get API_KEY from here: https://www.explara.com/a/account/manage/app-settings
 # Your API_KEY = 'Bearer <YourKeyHere>'
 API_KEY = environ['API_KEY']
